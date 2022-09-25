@@ -41,3 +41,58 @@ body {
     transform: rotate(360deg);
   }
 }
+
+span.subtitle {
+    display: table;
+    white-space: nowrap;
+}
+
+span.subtitle:before, span.subtitle:after {
+    border-top: 1px solid #DEE5EA;
+    content: '';
+    display: table-cell;
+    position: relative;
+    top: 0.5em;
+    width: 50%;
+}
+
+span.subtitle:before {
+    right: 1.5%;
+}
+
+span.subtitle:after {
+    left: 1.5%;
+}
+
+.content {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-form {
+    background-color: #F3F1EC;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    margin-left: 60px;
+    text-align: left;
+}
+
+.row {
+    margin-bottom: 10px;
+}
+
+#filled-basic {
+    width: 450px;
+}
+
+.contact-list {
+    background-color: #E0F5F0;
+    margin-right: 120px;
+}
+
+.button {
+    margin-top: 20px;
+}
