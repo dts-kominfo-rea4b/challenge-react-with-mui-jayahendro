@@ -2,54 +2,49 @@
 // Contact component dapat berupa MUI ListItem
 // https://mui.com/material-ui/react-list/#folder-list
 import React from 'react';
-import {Avatar, List, ListItem, ListItemAvatar, ListItemText} from "@mui/material";
+import {Avatar, Divider, List, ListItem, ListItemAvatar, ListItemText, Typography} from "@mui/material";
 import './Contact.css'
 
 // Kalian bisa membuat CSS sendiri di src/components/Contact.css
-function ImageIcon() {
-    return null;
-}
-
-function WorkIcon() {
-    return null;
-}
-
-function BeachAccessIcon() {
-    return null;
-}
 
 // atau langsung tambahkan dengan sx={{}}
-const Contact = ({ data }) => {
+const Contact = ({ data, myKey }) => {
     // Contact berisi foto, nama, telepon, dan email
     return (
-      <>
-          <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'transparent' }}>
-              <ListItem>
-                  <ListItemAvatar>
-                      <Avatar>
-                          <ImageIcon />
-                      </Avatar>
+      <div key={myKey}>
+          <List sx={{ width: '100%', maxWidth: 560, bgcolor: 'transparent', justifyContent: 'center', alignItems: 'center' }}>
+              <ListItem alignItems="flex-start">
+                  <ListItemAvatar className={"avatar"}>
+                      <Avatar alt={data.name}
+                              src={data.photo}
+                      sx={{ width: 72, height: 72 }}/>
                   </ListItemAvatar>
-                  <ListItemText primary="Photos" secondary="Jan 9, 2014" />
+                  <ListItemText
+                    className={"text"}
+                    primary={data.name}
+                    secondary={
+                        <React.Fragment>
+                            <Typography
+                              component="span"
+                              variant="subtitle2"
+                              color="text.secondary"
+                            >
+                                {data.phone}<br/>
+                            </Typography>
+                            <Typography
+                              component="span"
+                              variant="subtitle2"
+                              color="text.secondary"
+                            >
+                                {data.email}
+                            </Typography>
+                        </React.Fragment>
+                  }
+                  />
               </ListItem>
-              <ListItem>
-                  <ListItemAvatar>
-                      <Avatar>
-                          <WorkIcon />
-                      </Avatar>
-                  </ListItemAvatar>
-                  <ListItemText primary="Work" secondary="Jan 7, 2014" />
-              </ListItem>
-              <ListItem>
-                  <ListItemAvatar>
-                      <Avatar>
-                          <BeachAccessIcon />
-                      </Avatar>
-                  </ListItemAvatar>
-                  <ListItemText primary="Vacation" secondary="July 20, 2014" />
-              </ListItem>
+              <Divider />
           </List>
-      </>
+      </div>
     );
 };
 

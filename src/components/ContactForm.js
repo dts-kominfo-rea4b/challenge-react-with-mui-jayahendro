@@ -4,10 +4,15 @@
 // https://mui.com/material-ui/react-card/#basic-card
 
 import {Button, Container, TextField} from "@mui/material";
+import {useState} from "react";
 
-const ContactForm = () => {
+const ContactForm = ({ clickHandler }) => {
     // Form berisi name, phone, email, dan photo url
     // Buatlah state newContact berupa objek sesuai dengan data yang ada
+    const [name, setName] = useState("");
+    const [phone, setPhone] = useState("");
+    const [email, setEmail] = useState("");
+    const [photo, setPhoto] = useState("");
 
     return (
         <Container>
@@ -17,6 +22,8 @@ const ContactForm = () => {
                        variant="filled"
                        required
                        fullWidth
+                       value={name}
+                       onChange={(element) => setName(element.target.value)}
             />
           </div>
           <div className={"row"}>
@@ -25,6 +32,8 @@ const ContactForm = () => {
                        variant="filled"
                        required
                        fullWidth
+                       value={phone}
+                       onChange={(element) => setPhone(element.target.value)}
             />
           </div>
           <div className={"row"}>
@@ -33,6 +42,8 @@ const ContactForm = () => {
                        variant="filled"
                        required
                        fullWidth
+                       value={email}
+                       onChange={(element) => setEmail(element.target.value)}
             />
           </div>
           <div className={"row"}>
@@ -41,10 +52,15 @@ const ContactForm = () => {
                        variant="filled"
                        required
                        fullWidth
+                       value={photo}
+                       onChange={(element) => setPhoto(element.target.value)}
             />
           </div>
           <div className={"button"}>
-            <Button variant="text">Add New</Button>
+            <Button variant="text"
+                    onClick={() => clickHandler({ name, phone, email, photo})}>
+              Add New
+            </Button>
           </div>
         </Container>
     );

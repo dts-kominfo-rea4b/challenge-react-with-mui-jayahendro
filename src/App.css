@@ -71,6 +71,7 @@ span.subtitle:after {
 }
 
 .contact-form {
+    height: fit-content;
     background-color: #F3F1EC;
     padding-top: 20px;
     padding-bottom: 10px;
@@ -89,8 +90,11 @@ span.subtitle:after {
 }
 
 .contact-list {
+    width: 560px;
     background-color: #E0F5F0;
     margin-right: 120px;
+    margin-left: 20px;
+    padding: 10px;
 }
 
 .button {
